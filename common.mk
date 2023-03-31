@@ -476,4 +476,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/netmgr_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/netmgr_config.xml
 
-TARGET_SUPPORTS_QUICK_TAP := true
+# OSS Time service
+PRODUCT_PACKAGES += \
+    timekeep \
+    TimeKeep
