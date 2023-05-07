@@ -15,9 +15,9 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings.ModeSwitch;
+package com.spark.device.DeviceSettings.ModeSwitch;
 
-import com.yaap.device.DeviceSettings.Utils;
+import com.spark.device.DeviceSettings.Utils;
 
 public class HBMModeSwitch {
 
