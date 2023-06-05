@@ -6,6 +6,10 @@
 
 $(call inherit-product, vendor/oneplus/msm8998-common/msm8998-common-vendor.mk)
 
+# Spark flags
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_BOOT_ANIMATION_RES := 1080
+
 ifeq ($(WITH_GAPPS), true)
     # Get non-open-source specific aspects for Ok Google
     $(call inherit-product, vendor/oneplus/google/google.mk)
