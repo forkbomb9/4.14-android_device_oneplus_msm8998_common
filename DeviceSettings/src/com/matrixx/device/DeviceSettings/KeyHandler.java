@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.rising.device.DeviceSettings;
+package me.nkeor.device.DeviceSettings;
 
 import android.app.NotificationManager;
 import android.app.Service;
@@ -34,8 +34,8 @@ import android.provider.Settings;
 import android.util.Log;
 import androidx.preference.PreferenceManager;
 
-import com.rising.device.DeviceSettings.Constants;
-import com.rising.device.DeviceSettings.DeviceSettings;
+import me.nkeor.device.DeviceSettings.Constants;
+import me.nkeor.device.DeviceSettings.DeviceSettings;
 
 public class KeyHandler extends Service {
     private AudioManager mAudioManager;

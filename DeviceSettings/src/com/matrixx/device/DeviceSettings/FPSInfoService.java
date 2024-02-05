@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rising.device.DeviceSettings;
+package me.nkeor.device.DeviceSettings;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

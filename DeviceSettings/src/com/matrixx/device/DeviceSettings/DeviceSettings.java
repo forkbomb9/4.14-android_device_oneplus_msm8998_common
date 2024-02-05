@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.rising.device.DeviceSettings;
+package me.nkeor.device.DeviceSettings;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -32,7 +32,7 @@ import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 import androidx.preference.TwoStatePreference;
 
-import com.rising.device.DeviceSettings.ModeSwitch.DCModeSwitch;
+import me.nkeor.device.DeviceSettings.ModeSwitch.DCModeSwitch;
 
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {

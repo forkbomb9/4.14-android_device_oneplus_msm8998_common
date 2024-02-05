@@ -1,4 +1,4 @@
-package com.rising.device.DeviceSettings;
+package me.nkeor.device.DeviceSettings;
 
 import android.app.KeyguardManager;
 import android.content.Context;

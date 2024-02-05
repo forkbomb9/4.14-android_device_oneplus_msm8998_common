@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.rising.device.DeviceSettings;
+package me.nkeor.device.DeviceSettings;
 
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;

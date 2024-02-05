@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.rising.device.DeviceSettings;
+package me.nkeor.device.DeviceSettings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,7 +23,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceManager;
 
-import com.rising.device.DeviceSettings.DeviceSettings;
+import me.nkeor.device.DeviceSettings.DeviceSettings;
 
 public class ChgVoltageCheck implements OnPreferenceChangeListener {
 
