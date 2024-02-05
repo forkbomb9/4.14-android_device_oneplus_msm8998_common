@@ -33,18 +33,11 @@ import androidx.preference.SwitchPreference;
 import androidx.preference.TwoStatePreference;
 
 import com.rising.device.DeviceSettings.ModeSwitch.DCModeSwitch;
-import com.rising.device.DeviceSettings.ModeSwitch.HBMModeSwitch;
 
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    public static final String KEY_SRGB_SWITCH = "srgb";
-    public static final String KEY_HBM_SWITCH = "hbm";
     public static final String KEY_DC_SWITCH = "dc";
-    public static final String KEY_DCI_SWITCH = "dci";
-    public static final String KEY_NIGHT_SWITCH = "night";
-    public static final String KEY_ADAPTIVE_SWITCH = "adaptive";
-    public static final String KEY_ONEPLUS_SWITCH = "oneplus";
     public static final String KEY_FPS_INFO = "fps_info";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
@@ -54,7 +47,6 @@ public class DeviceSettings extends PreferenceFragment
     private static final boolean sIsOnePlus5t = android.os.Build.DEVICE.equals("OnePlus5T");
     private TwoStatePreference mButtonSwap;
     private TwoStatePreference mChgVoltageCheck;
-    private TwoStatePreference mHBMModeSwitch;
     private SwitchPreference mFpsInfo;
     private VibratorStrengthPreference mVibratorStrength;
 
@@ -71,11 +63,6 @@ public class DeviceSettings extends PreferenceFragment
         mDCModeSwitch.setEnabled(DCModeSwitch.isSupported());
         mDCModeSwitch.setChecked(DCModeSwitch.isCurrentlyEnabled());
         mDCModeSwitch.setOnPreferenceChangeListener(new DCModeSwitch());
-
-        mHBMModeSwitch = findPreference(KEY_HBM_SWITCH);
-        mHBMModeSwitch.setEnabled(HBMModeSwitch.isSupported());
-        mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled());
-        mHBMModeSwitch.setOnPreferenceChangeListener(this);
 
         mFpsInfo = findPreference(KEY_FPS_INFO);
         mFpsInfo.setChecked(isFPSOverlayRunning());
@@ -99,7 +86,6 @@ public class DeviceSettings extends PreferenceFragment
     @Override
     public void onResume() {
         super.onResume();
-        mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled());
         mFpsInfo.setChecked(isFPSOverlayRunning());
     }
 
@@ -112,16 +98,6 @@ public class DeviceSettings extends PreferenceFragment
                 getContext().startService(fpsinfo);
             } else {
                 getContext().stopService(fpsinfo);
-            }
-        } else if (preference == mHBMModeSwitch) {
-            Boolean enabled = (Boolean) newValue;
-            Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "5" : "0");
-            Intent hbmIntent = new Intent(getContext(),
-                    com.rising.device.DeviceSettings.HBMModeService.class);
-            if (enabled) {
-                getContext().startService(hbmIntent);
-            } else {
-                getContext().stopService(hbmIntent);
             }
         }
         return true;
