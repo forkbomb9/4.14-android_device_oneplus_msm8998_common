@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rising.device.DeviceSettings;
+package com.matrixx.device.DeviceSettings;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

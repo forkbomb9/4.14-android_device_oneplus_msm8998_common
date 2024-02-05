@@ -3,6 +3,6 @@
     public <init>(android.content.Context);
 }
 
--keep class com.rising.device.DeviceSettings.* {
+-keep class com.matrixx.device.DeviceSettings.* {
   *;
 }

@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2016 The OmniROM Project
+* Copyright (C) 2023 Namkhai B.
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -15,16 +15,19 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.rising.device.DeviceSettings.ModeSwitch;
+package com.matrixx.device.DeviceSettings;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceManager;
 
-import com.rising.device.DeviceSettings.Utils;
+import com.matrixx.device.DeviceSettings.DeviceSettings;
 
-public class DCModeSwitch implements OnPreferenceChangeListener {
+public class ChgVoltageCheck implements OnPreferenceChangeListener {
 
-    private static final String FILE = "/proc/flicker_free/flicker_free";
+    private static final String FILE = "/sys/devices/platform/soc/800f000.qcom,spmi/spmi-0/spmi0-02/800f000.qcom,spmi:qcom,pmi8998@2:qcom,qpnp-smb2/disable_voltage_check";
 
     public static String getFile() {
         if (Utils.fileWritable(FILE)) {
@@ -37,7 +40,7 @@ public class DCModeSwitch implements OnPreferenceChangeListener {
         return Utils.fileWritable(getFile());
     }
 
-    public static boolean isCurrentlyEnabled() {
+    public static boolean isCurrentlyEnabled(Context context) {
         return Utils.getFileValueAsBoolean(getFile(), false);
     }
 

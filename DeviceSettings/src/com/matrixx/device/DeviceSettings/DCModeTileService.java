@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.rising.device.DeviceSettings;
+package com.matrixx.device.DeviceSettings;
 
 import android.content.SharedPreferences;
 import android.graphics.drawable.Icon;
@@ -23,7 +23,7 @@ import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import androidx.preference.PreferenceManager;
 
-import com.rising.device.DeviceSettings.ModeSwitch.DCModeSwitch;
+import com.matrixx.device.DeviceSettings.ModeSwitch.DCModeSwitch;
 
 public class DCModeTileService extends TileService {
     private boolean enabled = false;

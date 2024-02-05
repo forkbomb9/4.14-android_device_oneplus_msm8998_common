@@ -1,4 +1,4 @@
-package com.rising.device.DeviceSettings;
+package com.matrixx.device.DeviceSettings;
 
 import android.app.KeyguardManager;
 import android.content.Context;

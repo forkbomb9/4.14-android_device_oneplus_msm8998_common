@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.rising.device.DeviceSettings;
+package com.matrixx.device.DeviceSettings;
 
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;

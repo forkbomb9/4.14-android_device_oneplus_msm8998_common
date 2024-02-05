@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.rising.device.DeviceSettings;
+package com.matrixx.device.DeviceSettings;
 
 import android.database.Cursor;
 import android.database.MatrixCursor;

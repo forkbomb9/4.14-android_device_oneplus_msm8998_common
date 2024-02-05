@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package com.rising.device.DeviceSettings;
+package com.matrixx.device.DeviceSettings;
 
 public class Constants {
 
     // Broadcast action for settings update
-    static final String UPDATE_PREFS_ACTION = "com.rising.device.DeviceSettings.UPDATE_SETTINGS";
+    static final String UPDATE_PREFS_ACTION = "com.matrixx.device.DeviceSettings.UPDATE_SETTINGS";
 
     // Screen off Gesture actions
     static final int ACTION_FLASHLIGHT = 1;
