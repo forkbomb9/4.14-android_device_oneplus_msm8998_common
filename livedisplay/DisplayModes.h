@@ -36,7 +36,11 @@ class DisplayModes : public IDisplayModes {
     Return<bool> setDisplayMode(int32_t modeID, bool makeDefault) override;
 
   private:
-    static const std::map<int32_t, std::string> kModeMap;
+    struct ModeInfo {
+        std::string name;
+        std::string node;
+    };
+    static const std::map<int32_t, ModeInfo> kModeMap;
     int32_t mCurrentModeId;
     int32_t mDefaultModeId;
     DisplayModeSetCallback mOnDisplayModeSet;
