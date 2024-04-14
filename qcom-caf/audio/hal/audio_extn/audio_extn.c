@@ -2986,7 +2986,7 @@ bool audio_extn_compr_cap_enabled()
     return ret_val;
 }
 
-bool audio_extn_compr_cap_format_supported(audio_format_t format)
+bool audio_extn_compr_cap_format_supported(int format)
 {
     bool ret_val = false;
 
@@ -3006,7 +3006,7 @@ bool audio_extn_compr_cap_usecase_supported(audio_usecase_t usecase)
     return ret_val;
 }
 
-size_t audio_extn_compr_cap_get_buffer_size(audio_format_t format)
+size_t audio_extn_compr_cap_get_buffer_size(int format)
 {
     size_t ret_val = 0;
 

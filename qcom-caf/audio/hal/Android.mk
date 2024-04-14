@@ -127,6 +127,7 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DAEMON_SUPPORT)), true)
 endif
 
 LOCAL_CFLAGS += -Wno-macro-redefined
+LOCAL_CFLAGS += -Wno-deprecated-non-prototype
 
 LOCAL_HEADER_LIBRARIES := libhardware_headers
 

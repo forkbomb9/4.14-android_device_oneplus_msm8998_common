@@ -532,9 +532,9 @@ int audio_extn_get_spkr_prot_snd_device(snd_device_t snd_device);
 void compr_cap_feature_init(bool is_feature_enabled);
 void audio_extn_compr_cap_init(struct stream_in *in);
 bool audio_extn_compr_cap_enabled();
-bool audio_extn_compr_cap_format_supported(audio_format_t format);
+bool audio_extn_compr_cap_format_supported(int format);
 bool audio_extn_compr_cap_usecase_supported(audio_usecase_t usecase);
-size_t audio_extn_compr_cap_get_buffer_size(audio_format_t format);
+size_t audio_extn_compr_cap_get_buffer_size(int format);
 size_t audio_extn_compr_cap_read(struct stream_in *in,
                                         void *buffer, size_t bytes);
 void audio_extn_compr_cap_deinit();
