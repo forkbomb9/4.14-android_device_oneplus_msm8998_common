@@ -60,18 +60,18 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        product/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml )
+        product/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml)
             sed -i "s|/system/framework/|/system/product/framework/|g" "${2}"
             ;;
         system_ext/lib64/lib-imsvideocodec.so)
             grep -q "libgui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
             "${PATCHELF}" --replace-needed "libqdMetaData.so" "libqdMetaData.system.so" "${2}"
             ;;
-        vendor/bin/pm-service)
-            grep -q libutils-v33.so "${2}" || "${PATCHELF}" --add-needed "libutils-v33.so" "${2}"
-            ;;
-        vendor/etc/permissions/com.fingerprints.extension.xml )
+        vendor/etc/permissions/com.fingerprints.extension.xml)
             sed -i "s|/system/framework/|/vendor/framework/|g" "${2}"
+            ;;
+        vendor/lib/libSonyIMX371RmscLibrary.so|vendor/lib/libmms_gyro_vstab.so|vendor/lib/libmms_gyro_vstab_auth.so)
+            "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
             ;;
     esac
 }
@@ -90,7 +90,5 @@ if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt
 
     extract "${MY_DIR}/../${DEVICE}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 fi
-
-COMMON_BLOB_ROOT="${ANDROID_ROOT}"/vendor/"${VENDOR}"/"${DEVICE_COMMON}"/proprietary
 
 "${MY_DIR}"/setup-makefiles.sh

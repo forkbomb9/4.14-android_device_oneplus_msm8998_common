@@ -11,11 +11,10 @@ ifeq ($(WITH_GMS), true)
     $(call inherit-product, vendor/oneplus/google/google.mk)
 endif
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -149,6 +148,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.4:64 \
     android.hardware.camera.provider@2.4-impl:32 \
     android.hardware.camera.provider@2.4-service \
+    android.hardware.camera.provider@2.6:64 \
+    libstdc++_vendor \
     vendor.qti.hardware.camera.device@1.0
 
 # Device Settings
@@ -344,13 +345,19 @@ PRODUCT_PACKAGES += \
     OnePlusPocketMode
 
 # Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service.oneplus_msm8998-libperfmgr
+$(call inherit-product, hardware/oneplus/libqti-perfd-client/libqti-perfd-client.mk)
+$(call inherit-product, hardware/oneplus/power-libperfmgr/power-libperfmgr.mk)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json \
     system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
     system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-vendorcompat \
+    libprotobuf-cpp-full-3.9.1-vendorcompat \
+    libprotobuf-cpp-lite-vendorcompat
 
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
@@ -379,7 +386,6 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2.vendor \
     librmnetctl \
     libxml2 \
-    libprotobuf-cpp-full \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
 
 PRODUCT_PACKAGES += \
@@ -440,13 +446,6 @@ PRODUCT_PACKAGES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
-
-# VNDK
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib/libprotobuf-cpp-lite.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-full.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite.so \
-    prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v33.so
 
 # VR
 PRODUCT_PACKAGES += \
