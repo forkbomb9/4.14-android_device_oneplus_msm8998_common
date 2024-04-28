@@ -39,7 +39,7 @@ import lineageos.hardware.LineageHardwareManager; // Need FWB support
 import lineageos.hardware.TouchscreenGesture; // Need FWB support
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.android.settingslib.widget.R;
+import com.android.settingslib.collapsingtoolbar.R;
 
 import java.lang.System;
 
